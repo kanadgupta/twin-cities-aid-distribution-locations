@@ -7,7 +7,8 @@ html {
   font-size: 14px;
 }
 
-body {
+/* TODO: remove the `body` attribute, only keeping it in here so it doesn't break the legacy build */
+body, body > div#__next {
   position: absolute;
   top: 0;
   left: 0;
@@ -71,17 +72,24 @@ a.txt-white:hover {
   width: 100%;
 }
 
-.help-info:target {
-  display: block;
+.map.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.help-info:not(:target) {
+/* Needed to comment these out since we're hiding the help info based on different logic in the Next.js app */
+/* .help-info:target {
+  display: block;
+} */
+
+/* .help-info:not(:target) {
   display: none;
 }
 
 .help-info:target + .map {
   display: none;
-}
+} */
 
 .content {
   z-index: 1;
@@ -104,11 +112,6 @@ a.txt-white:hover {
 
 .txt-extra-small {
   font-size: 10px;
-}
-
-.txt-deemphasize {
-  opacity: 0.70;
-  font-size: 0.9em;
 }
 
 .bold {
@@ -298,6 +301,7 @@ input[type='checkbox'] + label {
   padding: 5px 0 0 0;
   margin: 0px;
   border-bottom: 1px solid #ddd;
+  color: var(--gray-700);
 }
 
 .popup-content .value {
@@ -308,11 +312,6 @@ input[type='checkbox'] + label {
 .popup-content address {
   padding-bottom: 5px;
   font-style: normal;
-}
-
-.popup-content .updated-at {
-  padding-bottom: 20px;
-  font-style: italic;
 }
 
 /* component: traffic counter */
@@ -334,6 +333,7 @@ input[type='checkbox'] + label {
   font-size: 25px;
   padding: 4px 8px;
   line-height: .9;
+  z-index: 1;
 }
 
 .mapboxgl-marker {
